@@ -1,4 +1,4 @@
-import routerUsers from "../users/routes/router-users";
+import routerUsers from "../users/routes/usersRouter";
 import express from "express";
 const router = express.Router();
 
