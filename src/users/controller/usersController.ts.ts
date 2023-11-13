@@ -27,7 +27,8 @@ export const handleLogin = async (req: Request, res: Response) => {
   try {
     const userFromClient: UserInterface = req.body;
     const { error } = userValidation(userFromClient);
-    if (error?.details[0].message) throw new ServerError(400, error?.details[0].message);
+    if (error?.details[0].message)
+      throw new ServerError(400, error?.details[0].message);
     const token = await login(userFromClient);
     return res.send(token);
   } catch (error) {
