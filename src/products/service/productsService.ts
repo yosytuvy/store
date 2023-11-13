@@ -1,6 +1,7 @@
 import {
   addRatingProductToDb,
   getProductByIdFromDb,
+  getProductsByCategoryFromDb,
   getProductsFromDb,
 } from "../dal/productsDal";
 
@@ -17,6 +18,15 @@ export const getProductById = async (_id: string) => {
   try {
     const product = await getProductByIdFromDb(_id);
     return product;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const getProductsByCategory = async (category: string) => {
+  try {
+    const products = await getProductsByCategoryFromDb(category);
+    return products;
   } catch (error) {
     return Promise.reject(error);
   }

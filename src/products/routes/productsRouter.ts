@@ -4,13 +4,16 @@ import {
   handleAddRatingProduct,
   handleGetProductById,
   handleGetProducts,
+  handleGetProductsByCategory,
 } from "../controllers/productsController";
 
 const router = express.Router();
 
 router.get("/", handleGetProducts);
 
-router.get("/:_id", handleGetProductById);
+router.get("/id/:_id", handleGetProductById);
+
+router.get("/category/:category", handleGetProductsByCategory)
 
 router.put("/addRating", handleAddRatingProduct);
 

@@ -4,6 +4,7 @@ import {
   addRatingProduct,
   getProductById,
   getProducts,
+  getProductsByCategory,
 } from "../service/productsService";
 import Product from "../models/mongoose/productSchema";
 
@@ -31,6 +32,19 @@ export const handleAddRatingProduct = async (req: Request, res: Response) => {
     const { _id } = req.params;
     const updatedProduct = await addRatingProduct(_id);
     res.send(updatedProduct);
+  } catch (error) {
+    handleError(res, error);
+  }
+};
+
+export const handleGetProductsByCategory = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const { category } = req.params;
+    const products = await getProductsByCategory(category);
+    res.send(products);
   } catch (error) {
     handleError(res, error);
   }
