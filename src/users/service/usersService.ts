@@ -25,7 +25,8 @@ export const login = async (user: UserInterface) => {
     const correctPassword = comparePassword(password, userInDB.password);
     if (!correctPassword) throw new Error("password or email wrong");
     const token = generateToken(userInDB._id.toString());
-    return token;
+    const response = {usrId: userInDB._id.toString(), token}
+    return response;
   } catch (error) {
     return Promise.reject(error);
   }

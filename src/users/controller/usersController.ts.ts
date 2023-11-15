@@ -17,7 +17,7 @@ export const handleUserRegistration = async (req: Request, res: Response) => {
     if (error?.details[0].message)
       throw new ServerError(400, error?.details[0].message);
     const userFromDB = await registerUser(user);
-    return res.send(userFromDB);
+    res.send(userFromDB);
   } catch (error) {
     handleError(res, error);
   }
@@ -29,8 +29,8 @@ export const handleLogin = async (req: Request, res: Response) => {
     const { error } = userValidation(userFromClient);
     if (error?.details[0].message)
       throw new ServerError(400, error?.details[0].message);
-    const token = await login(userFromClient);
-    return res.send(token);
+    const response = await login(userFromClient);
+    res.send(response);
   } catch (error) {
     handleError(res, error);
   }
