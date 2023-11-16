@@ -1,16 +1,16 @@
-// import express from "express";
-// import {
-//   handleAddRatingCategories,
-//   handleGetCategoryById,
-//   handleGetCategories,
-// } from "../controllers/categoriesController";
+import express from "express";
+import {
+  handleGetCategories,
+  handleGetCategory,
+  handleIncrementCategoryRating,
+} from "../controllers/categoriesController";
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.get("/", handleGetCategories);
+router.get("/getCategory/:category", handleGetCategory);
 
-// router.get("/id/:_id", handleGetCategoryById);
+router.get("/", handleGetCategories);
 
-// router.put("/addRating", handleAddRatingCategories);
+router.put("/:category", handleIncrementCategoryRating);
 
-// export default router;
+export default router;

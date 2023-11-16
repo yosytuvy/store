@@ -9,14 +9,23 @@ export const getCategoriesFromDb = async () => {
   }
 };
 
-export const incrementCategoryRating = async (category: string) => {
+export const incrementCategoryRatingInDb = async (category: string) => {
   try {
     const updatedCategory = await Category.findOneAndUpdate(
-      { category: category },
+      { name: category },
       { $inc: { rating: 1 } },
       { new: true }
     );
-    return updatedCategory
+    return updatedCategory;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const getCategoryFromDb = async (category: string) => {
+  try {
+    const categoryFromDb = await Category.findOne({ name: category });
+    return categoryFromDb;
   } catch (error) {
     return Promise.reject(error);
   }
