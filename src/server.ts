@@ -4,17 +4,16 @@ const app = express();
 import morgan from "./helpers/loggers/morgan_logger";
 import router from "./router/router";
 import mongoose from "mongoose";
-import cors from "./helpers/cors/cors"
-
+import cors from "cors"
 app.use(morgan);
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 app.use(express.text());
 app.use("/api", router);
 
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/storeDB");
+    await mongoose.connect("mongodb+srv://yosy:aA12345@cluster0.qtzfd2c.mongodb.net/store");
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);

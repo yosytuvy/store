@@ -1,6 +1,6 @@
 import cors, { CorsOptionsDelegate } from "cors";
 
-const whiteList = ["http://127.0.0.1:8181", "http://localhost:8181", "http://localhost:5173"];
+const whiteList = ["http://127.0.0.1:8181", "http://localhost:8181", "http://localhost:517*"];
 
 const corsOptions: CorsOptionsDelegate = (req, callback) => {
   const authorized = whiteList.find((api) => api === req.headers.origin);

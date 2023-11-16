@@ -1,6 +1,9 @@
+import categoryType from "../../products/types/categoryType";
+
 interface CategoryInterface {
-    category: string;
-    rating: number
+    category: categoryType;
+    rating: number;
+    image: string
 }
 
 export default CategoryInterface
