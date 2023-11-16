@@ -26,7 +26,7 @@ export const addRatingProductToDb = async (_id: string) => {
   try {
     const updatedProduct = Product.findByIdAndUpdate(
       _id,
-      { $inc: { rating: +1 } },
+      { $inc: { rating: 1 } },
       { new: true }
     );
     if (!updatedProduct) throw new ServerError(400, "product not found");

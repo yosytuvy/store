@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import UserInterface from "../../users/interfaces/UserInterface";
 import dotenv from "dotenv";
 
 dotenv.config();

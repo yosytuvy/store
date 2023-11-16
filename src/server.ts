@@ -1,13 +1,13 @@
 import express from "express";
 const app = express();
 
-import cors from "cors";
 import morgan from "./helpers/loggers/morgan_logger";
 import router from "./router/router";
 import mongoose from "mongoose";
+import cors from "./helpers/cors/cors"
 
-app.use(cors());
 app.use(morgan);
+app.use(cors);
 app.use(express.json());
 app.use(express.text());
 app.use("/api", router);
